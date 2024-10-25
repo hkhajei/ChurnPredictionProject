@@ -24,8 +24,8 @@ Customer churn can significantly impact the profitability and growth of business
 
 ### Prerequisites
 
-- **.NET 6.0 SDK** (or higher)
-- **Python 3.8** (or higher)
+- **.NET 8.0 SDK** (or higher)
+- **Python 3.12.3** (or higher)
 - **Joblib** for model serialization
 - **Flask** for API backend
 
@@ -33,7 +33,7 @@ Customer churn can significantly impact the profitability and growth of business
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/churn-prediction-project.git
+   git clone https://github.com/hkhajei/churn-prediction-project.git
   
 2. **Set up the Flask API**:
 
