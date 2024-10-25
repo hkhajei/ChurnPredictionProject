@@ -1,100 +1,85 @@
-# Sales Prediction Project
+# Churn Prediction Project
 
-This project is a **Sales Forecasting** application that uses historical sales data to predict future sales trends using **Python** (with `Prophet`), integrated into an **ASP.NET Core MVC** web application. It allows users to input historical sales data, forecast future sales, and display the results in a user-friendly web interface.
+This project provides a **Churn Prediction** application built with **ASP.NET Core MVC** and **Python** (Flask API). It is designed to help businesses identify customers who are likely to churn based on historical data, enabling data-driven decisions for customer retention strategies.
 
-## Features
-- Upload historical sales data
-- Predict future sales based on historical data
-- Display results in tabular format
-- User-friendly interface with **ASP.NET MVC**
-- Backend forecasting service using **Flask** and **Prophet**
+## Project Overview
 
-## Technologies Used
-- **ASP.NET Core MVC** for the web application framework
-- **Flask API** to serve the forecasting model
-- **Prophet** for time-series forecasting
-- **Entity Framework Core** for database operations
-- **SQL Server** as the database
-- **HTML/CSS/JavaScript** for front-end
+Customer churn can significantly impact the profitability and growth of businesses. By predicting which customers are at risk of leaving, businesses can proactively implement strategies to improve customer satisfaction, offer personalized promotions, or provide targeted support to reduce churn. This application demonstrates a robust way to predict customer churn by integrating data science models with a user-friendly ASP.NET Core MVC interface.
 
-## Requirements
-To run this project locally, you will need:
-- **.NET SDK** (version 8.0 or later)
-- **Python 3.12.3** with `Flask` and `Prophet`
-- **SQL Server** or any database provider compatible with Entity Framework
-- **Git**
+### Key Features
 
-## Installation and Setup
+- **Predict Customer Churn**: Leverages a machine learning model to predict the probability of a customer churning based on input attributes like age, tenure, monthly spending, and gender.
+- **Business Insights**: Enables businesses to understand which customer segments are more prone to churn and prioritize retention efforts.
+- **Easy-to-Use Interface**: Allows users to submit customer data through a form and view prediction results in a user-friendly interface.
+- **Flask API Integration**: The Python (Flask) backend serves as the prediction engine, integrating seamlessly with the ASP.NET Core frontend.
 
-### 1. Clone the Repository
-Clone this repository to your local machine:
-```bash
-git clone https://github.com/hkhajei/SalesPredictionProject.git
-cd SalesPredictionProject
-```
-### 2. Set Up the Python Flask API
-Navigate to the /python folder (or where your Python files are located), install the dependencies, and run the Flask server:
+### Technical Stack
 
-```bash
-cd python
-pip install -r requirements.txt
-python app.py
-```
-### 3. Set Up the ASP.NET Core MVC Application
-Go back to the root folder and run the ASP.NET Core project:
+- **ASP.NET Core MVC**: Serves as the frontend, handling user input, validation, and displaying prediction results.
+- **Flask (Python)**: Implements the backend API with a machine learning model for churn prediction.
+- **Machine Learning**: The churn prediction model is built with a supervised learning algorithm and is serialized with Joblib to allow easy loading and prediction.
+- **SQL Database**: Stores customer data and churn prediction results for future reference and analysis.
 
-```bash
-dotnet build
-dotnet run
-```
-Ensure that the Flask API is running on http://127.0.0.1:5000.
+## Getting Started
 
-### 4. Set Up the Database
-Update the connection string in appsettings.json to point to your local SQL Server instance.
-Run the following command to apply migrations and update the database:
+### Prerequisites
 
-```bash
-dotnet ef database update
-```
-### 5. Run the Application
-Go to your browser and navigate to http://localhost:5000 to see the web app.
+- **.NET 6.0 SDK** (or higher)
+- **Python 3.8** (or higher)
+- **Joblib** for model serialization
+- **Flask** for API backend
 
+### Installation
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/your-username/churn-prediction-project.git
+  
+2. **Set up the Flask API**:
+
+* Navigate to the FlaskAPI directory:
+  ```bash
+  cd FlaskAPI
+  ```
+* Install the necessary Python libraries:
+
+  ```bash
+  pip install -r requirements.txt
+  ```
+* Start the Flask server:
+
+  ```bash
+  python app.py
+  ```
+3. **Set up the ASP.NET Core MVC Project**:
+
+* Open the ChurnPredictionProject.sln file in Visual Studio or use the command line to restore dependencies:
+  ```bash
+  dotnet restore
+  ```
+* Update the database connection string as needed in appsettings.json.
+
+* Run the ASP.NET application:
+  ```bash
+  dotnet run
+  ```
 ## Usage
-### Upload Sales Data
-Go to the Upload page to upload historical sales data.
-Ensure the data is in the correct format (e.g., CSV).
+### Predict Churn for a Customer
+1. **Enter Customer Data**: Go to the /PredictChurn page and input the customer's details (age, gender, monthly spending, tenure).
+2. **View Prediction Result**: The application sends the data to the Flask API for prediction and displays the likelihood of churn directly on the result page.
+3. **Store Prediction**: Each prediction result is stored in the database, providing a historical record for further analysis.
+### Example Use Case
+This churn prediction model is tailored for customer success or marketing teams who want to reduce churn by identifying at-risk customers and taking preventative measures. For instance:
 
-### Forecast Sales
-After uploading the sales data, navigate to the Forecast page.
-Enter the forecast period (e.g., number of months to predict).
-The application will display the forecasted sales.
-
-## Example Output
-
-| Date       | Predicted Sales |
-|------------|-----------------|
-| 2022-06-01 | 12,345          |
-| 2022-07-01 | 13,567          |
-| 2022-08-01 | 14,789          |
+* **Preventative Measures**: Target high-churn customers with special loyalty programs or personalized offers.
+* **Customer Success Strategies**: Enable customer support teams to reach out to at-risk customers and improve engagement.
+* **Revenue Optimization**: Reduce customer acquisition costs by focusing on retention strategies, which are often more cost-effective than acquiring new customers.
 
 ## Project Structure
-```mathematica
-Copy code
-├── Controllers/
-│   ├── SalesController.cs
-├── Models/
-│   ├── Entity/
-│   │   ├── SalesData.cs
-│   │   ├── ForecastResult.cs
-│   ├── Service/
-│       ├── ForecastService.cs
-├── Views/
-│   ├── Home/
-│   ├── Sales/
-├── wwwroot/
-├── python/
-│   ├── forecast_model.py
-│   ├── app.py
-```
-## Screenshots
-![Sales Forecast Screenshot](ScreenShots/SalesForecastResults.jpg)
+* ```ChurnPredictionProject``` - The main ASP.NET Core MVC application.
+* ```FlaskAPI``` - A separate directory containing the Flask app for the prediction model.
+* ```Models``` - C# classes representing entities such as Customer and ChurnPrediction.
+* ```Controllers``` - C# controllers handling the application's business logic.
+* ```Views``` - Razor views for rendering pages like customer input form and prediction results.
+## Contributing
+If you’d like to contribute, please fork the repository and create a pull request. Contributions to enhance the model accuracy, add additional features, or improve the frontend UI are highly appreciated!
