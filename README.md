@@ -83,3 +83,7 @@ This churn prediction model is tailored for customer success or marketing teams 
 * ```Views``` - Razor views for rendering pages like customer input form and prediction results.
 ## Contributing
 If you’d like to contribute, please fork the repository and create a pull request. Contributions to enhance the model accuracy, add additional features, or improve the frontend UI are highly appreciated!
+## Screenshots
+![Churn Prediction Screenshot](Screenshots/CustomerDataInputForm.jpg)
+
+![Churn Prediction Screenshot](Screenshots/ChurnPredictionResult.jpg)
