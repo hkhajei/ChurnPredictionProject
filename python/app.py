@@ -1,17 +1,26 @@
 from flask import Flask, request, jsonify
-from forecasting_model import forecast_sales  # Import your model function
+import joblib
+import pandas as pd
 
 app = Flask(__name__)
 
-@app.route('/forecast', methods=['POST'])
-def forecast():
-    data = request.json
-    sales_data = data['sales_data']
-    forecast_period = data['forecast_period']
-    
-    # Call your forecast_sales function
-    forecast_result = forecast_sales(sales_data, forecast_period)
-    return jsonify(forecast_result)
+# Load the trained model
+model = joblib.load("churn_model.joblib")
 
-if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+@app.route('/predict', methods=['POST'])
+def predict():
+    # Get data from request
+    data = request.json
+    # Convert data into DataFrame
+    df = pd.DataFrame([data])
+
+    # Preprocess if needed (e.g., convert categorical fields)
+    df = pd.get_dummies(df, drop_first=True)
+
+    # Make prediction
+    churn_prob = model.predict_proba(df)[:, 1]  # Probability of churn
+
+    return jsonify({"churn_probability": churn_prob[0]})
+
+if __name__ == "__main__":
+    app.run(port=5000)

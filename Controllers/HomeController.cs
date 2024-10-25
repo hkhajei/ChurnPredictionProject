@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using SalesPredictionProject.Models;
+using ChurnPredictionProject.Models;
 using System.Diagnostics;
 
-namespace SalesPredictionProject.Controllers
+namespace ChurnPredictionProject.Controllers
 {
     public class HomeController : Controller
     {
@@ -15,7 +15,7 @@ namespace SalesPredictionProject.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Create", "Churn"); 
         }
 
         public IActionResult Privacy()
@@ -30,11 +30,5 @@ namespace SalesPredictionProject.Controllers
         }
 
 
-        [HttpPost]
-        public IActionResult SubmitForecastPeriod(int forecastPeriod)
-        {
-
-            return RedirectToAction("ForecastSales", "Sales", new { forecastPeriod });
-        }
     }
 }

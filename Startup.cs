@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SalesPredictionProject.Data;
-using SalesPredictionProject.Models.Service;
+using ChurnPredictionProject.Data;
+using ChurnPredictionProject.Models.Service;
 
-namespace SalesPredictionProject
+namespace ChurnPredictionProject
 {
     public class Startup
     {
@@ -16,6 +16,8 @@ namespace SalesPredictionProject
         public void ConfigureServices(IServiceCollection services)
         {
 
+            // Register the prediction service
+            services.AddScoped<ChurnPredictionService>();
 
             services.AddDbContext<MyDbContext>(options =>
             {
@@ -24,6 +26,7 @@ namespace SalesPredictionProject
             });
 
             services.AddControllersWithViews();
+
 
 
             services.AddDistributedMemoryCache();

@@ -1,0 +1,17 @@
+﻿@model ChurnPredictionProject.Models.Entity.Customer
+
+<h2>Churn Prediction Result</h2>
+
+<div>
+    <h4>Customer Details</h4>
+    <p>Name: @Model.Name</p>
+    <p>Age: @Model.Age</p>
+    <p>Gender: @Model.Gender</p>
+    <p>Monthly Spending: @Model.MonthlySpending</p>
+    <p>Tenure (Months): @Model.TenureMonths</p>
+</div>
+
+<h4>Churn Prediction</h4>
+<p>The predicted probability of churn is: <strong>@ViewBag.ChurnProbability</strong></p>
+
+<a asp-action="Create" class="btn btn-secondary">Predict Another</a>

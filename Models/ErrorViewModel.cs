@@ -1,4 +1,4 @@
-namespace SalesPredictionProject.Models
+namespace ChurnPredictionProject.Models
 {
     public class ErrorViewModel
     {

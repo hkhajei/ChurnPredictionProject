@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Authentication.Negotiate;
 using Microsoft.EntityFrameworkCore;
-using SalesPredictionProject.Data;
-using SalesPredictionProject.Models.Service;
+using ChurnPredictionProject.Data;
+using ChurnPredictionProject.Models.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddHttpClient<ForecastService>();
+builder.Services.AddHttpClient<ChurnPredictionService>();
 
 
 builder.Services.AddDbContext<MyDbContext>(options =>

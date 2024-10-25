@@ -1,0 +1,31 @@
+﻿@model ChurnPredictionProject.Models.Entity.Customer
+
+<h2>Churn Prediction</h2>
+
+<form asp-action="PredictChurn" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Age"></label>
+        <input asp-for="Age" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Gender"></label>
+        <select asp-for="Gender" class="form-control">
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="MonthlySpending"></label>
+        <input asp-for="MonthlySpending" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="TenureMonths"></label>
+        <input asp-for="TenureMonths" type="number" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Predict Churn</button>
+</form>

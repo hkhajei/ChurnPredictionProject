@@ -2,12 +2,5 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h2>Forecast Sales</h2>
+<h2>Forecast Churn</h2>
 
-<form asp-action="SubmitForecastPeriod" method="post">
-    <div class="form-group">
-        <label for="forecastPeriod">Enter Forecast Period (in months):</label>
-        <input type="number" id="forecastPeriod" name="forecastPeriod" class="form-control" required min="1" />
-    </div>
-    <button type="submit" class="btn btn-primary mt-2">Submit</button>
-</form>

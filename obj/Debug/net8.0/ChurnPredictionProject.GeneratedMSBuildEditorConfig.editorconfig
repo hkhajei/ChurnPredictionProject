@@ -18,16 +18,24 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Web App Projects\ChurnPredictionProject
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Web App Projects/ChurnPredictionProject/Views/Churn/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2h1cm5cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Web App Projects/ChurnPredictionProject/Views/Churn/Import.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2h1cm5cSW1wb3J0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Web App Projects/ChurnPredictionProject/Views/Churn/Results.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2h1cm5cUmVzdWx0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Web App Projects/ChurnPredictionProject/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Web App Projects/ChurnPredictionProject/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Web App Projects/ChurnPredictionProject/Views/Sales/ForecastResults.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZXNcRm9yZWNhc3RSZXN1bHRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Web App Projects/ChurnPredictionProject/Views/Shared/Error.cshtml]

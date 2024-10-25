@@ -1,14 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.IO;
 using System.Security.AccessControl;
-using SalesPredictionProject.Models.Entity;
+using ChurnPredictionProject.Models.Entity;
+using ChurnPredictionProject.Models.Service;
 
-namespace SalesPredictionProject.Data
+namespace ChurnPredictionProject.Data
 {
     public class MyDbContext : DbContext
     {
 
-        public DbSet<SalesData> SalesDataRows { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<ChurnPrediction> ChurnPredictions { get; set; }        
         //public DbSet<ForecastResult> ForecastResults { get; set; }
         public MyDbContext(DbContextOptions options)
         {
@@ -31,12 +33,5 @@ namespace SalesPredictionProject.Data
                 });
             }
         }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<SalesData>()
-                .Property(s => s.SalesAmount)
-                .HasColumnType("decimal(18,2)"); // Precision 18, Scale 2
-        }
-
     }
 }

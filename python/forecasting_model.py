@@ -1,32 +1,27 @@
 import pandas as pd
-from prophet import Prophet
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+import joblib
 
-def forecast_sales(sales_data, forecast_period):
-    # Convert your sales data into a Pandas DataFrame
-    df = pd.DataFrame(sales_data)
-    df['ds'] = pd.to_datetime(df['Date'])  # Prophet requires date as 'ds'
-    df['y'] = df['SalesAmount']            # Prophet requires the target as 'y'
+# Load your data (ensure you have features such as Age, TenureMonths, MonthlySpending, etc.)
+data = pd.read_csv("customer_data.csv")
+X = data[['Age', 'Gender_Male', 'MonthlySpending', 'TenureMonths']]
+y = data['IsChurned']
 
-    # Initialize Prophet model
-    model = Prophet()
-    model.fit(df[['ds', 'y']])
+# Convert categorical features to dummy variables if necessary
+X = pd.get_dummies(X, drop_first=True)
 
-    # Make a DataFrame for future dates
-    future = model.make_future_dataframe(periods=forecast_period, freq='M')
+# Train-test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    # Predict the future sales
-    forecast = model.predict(future)
+# Model training
+model = RandomForestClassifier()
+model.fit(X_train, y_train)
 
-    count = len(sales_data)  # Find the last date in historical data
-    future_forecast = forecast.iloc[forecast.index>= count]  # Filter to only get points after the last historical date
+# Model evaluation
+predictions = model.predict(X_test)
+print(f"Accuracy: {accuracy_score(y_test, predictions)}")
 
-    
-    # Return relevant forecast columns (e.g., ds and yhat)
-    return future_forecast[['ds', 'yhat']].to_dict(orient='records')
-
-# sales_data = [{'Date': '2022-01-01', 'SalesAmount': 15000},
-#               {'Date': '2022-02-01', 'SalesAmount': 20000},
-#               {'Date': '2022-03-01', 'SalesAmount': 18000}]
-
-# forecast = forecast_sales(sales_data, forecast_period=3)
-# print(forecast)
+# Save the model
+joblib.dump(model, 'churn_model.joblib')
