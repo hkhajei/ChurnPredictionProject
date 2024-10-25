@@ -33,7 +33,7 @@ Customer churn can significantly impact the profitability and growth of business
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/hkhajei/churn-prediction-project.git
+   git clone https://github.com/hkhajei/ChurnPredictionProject.git
   
 2. **Set up the Flask API**:
 
