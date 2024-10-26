@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ChurnPredictionProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+83a2b2da5cab26bd5a37e92dce334ad72b6d0527")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c9ba600c9bbf0d155e58312a0f986da2dc666a7c")]
 [assembly: System.Reflection.AssemblyProductAttribute("ChurnPredictionProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ChurnPredictionProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
